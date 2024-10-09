@@ -1,0 +1,30 @@
+LInk: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
+
+In terminal:
+	mkdir -p ~/tello_ws/src
+	cd ~/tello_ws
+	catkin_make
+
+In home directory:
+In terminal:
+	gedit .bashrc
+Add to bashrc:
+	source /home/daniel/tello_ws/devel/setup.bash
+	
+	
+	
+	
+###############################################
+########If using a docker container: ##########
+
+mkdir -p /home/tello_ws/src
+cd /home/tello_ws
+catkin_make
+
+In /root directory:
+In terminal:
+	nano .bashrc
+Add to bashrc:
+	# source /root/tello_ws/develsetup.bash  # If mkdir -p ~/tello_ws/src and cd ~/tello_ws were used 
+	#######                                  # (Working folder is created in /root/)
+	source /home/tello_ws/devel/setup.bash

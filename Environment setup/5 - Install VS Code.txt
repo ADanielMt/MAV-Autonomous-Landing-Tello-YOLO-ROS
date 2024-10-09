@@ -1,0 +1,11 @@
+LInk: https://code.visualstudio.com/docs/?dv=linux64_deb
+
+Download VS Code
+
+In download directory:
+	sudo dpkg -i code_1.86.0-1706698139_amd64.deb
+
+Install extensions:
+	Python
+	C++/C
+	CMake Tools

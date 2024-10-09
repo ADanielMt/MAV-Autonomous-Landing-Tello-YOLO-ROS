@@ -1,0 +1,24 @@
+Link: https://github.com/JoseBalbuena181096/catkin_ws_ROS_TELLO
+
+* Clone repo from link above.
+* Unzip downloaded file
+* Go to src folder in unziped repo and copy jose_driver_tello folder to tello_ws/src
+	### For this work, the folder was renamed to driver_tello_mod and
+	### the python file was renamed to tello_driver_mod.py.
+	### Due to the change of name of this drive, also it is necessary to change the name
+	### in CMakeLists.txt and package.xml files.
+	
+Go to workspace folder (tello_ws) and open a new linux terminal:
+	Run: catkin_make
+	
+Open new linux terminal and run:
+	roscore   ## Execute master node
+	
+Open new linux terminal and run:
+	rosrun driver_tello_mod tello_driver_mod.py   ## Execute tello driver node
+	
+Open new linux terminal and run:
+	rosrun rqt_image_view rqt_image_view /tello/image_raw  ## Start camera viewer
+
+
+

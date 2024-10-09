@@ -1,0 +1,6 @@
+LInk: http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+
+In terminal (home):
+	cd tello_ws/src
+	catkin_create_pkg first_pkg std_msg rospy roscpp
+

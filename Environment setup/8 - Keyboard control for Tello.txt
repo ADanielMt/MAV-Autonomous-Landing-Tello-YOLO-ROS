@@ -1,0 +1,40 @@
+Link: https://alfredo-reyes-montero.gitbook.io/tello-dji/frameworks/ros
+
+
+Open new linux terminal and run:
+	cd tello_ws/src
+	catkin_create_pkg keyboard geometry_msgs roscpp rospy std_msgs   ## Create package with dependencies to use 
+									   ##(listed in link above)
+	
+
+Open new linux terminal and run:
+	pip3 install getkey   ## Package required to use keyboard to control the drone
+
+
+In VS Code:
+	Open working folder (use __File -> Open Folder__ option)  "tello_ws":
+		In tello_ws/src/keyboard/src: 
+			New File (tello_keyboard.py)
+			Write or copy node code
+			Save
+		In Terminal Tab -> New Terminal:
+			cd tello_ws/src/keyboard/src ## Go to package src folder 
+			chmod +x tello_keyboard.py ## Give execution privileges to node (tello_keyboard.py)
+			cd  ## Go to home 
+			cd tello_ws ## Go to home of workspace
+			catkin_make  ## Complile project 
+			## If error in compilation (related to std_msgs.msg package):
+				1 - Go to /home/daniel/tello_ws/src/name_pkg
+				2 - Open CMakeLists.txt and package.xml, then change all "std_msg" string to "std_msgs"
+				3 - Save changes in files and execute "catkin_make" in VS Terminal again, it should compile now
+
+Open new linux terminal and run:
+	roscore   ## Execute master node
+	
+Open new linux terminal and run:
+	roslaunch tello_driver tello_node.launch    ## Execute tello driver node
+	
+Open new linux terminal and run:
+	rosrun keyboard tello_keyboard.py  ## Start keyboard control node
+
+

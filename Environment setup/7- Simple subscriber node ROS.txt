@@ -1,0 +1,52 @@
+Link: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29
+
+In VS Code:
+	Open working folder (use __File -> Open Folder__ option) "tello_ws":
+		In tello_ws/src/first_pkg/src: 
+			New File (listener.py)
+			Write or copy subscriber node code
+			Save
+		In Terminal Tab -> New Terminal:
+			cd tello_ws/src/first_pkg/src ## Go to package src folder (or subscriber node folder)
+			chmod +x listener.py ## Give execution privileges to subscriber node (listener.py)
+			cd  ## Go to home 
+			cd tello_ws ## Go to home of workspace
+			catkin_make  ## Complile project 
+			## If error in compilation (related to std_msgs.msg package):
+				1 - Go to /home/daniel/tello_ws/src/first_pkg
+				2 - Open CMakeLists.txt and package.xml, then change all "std_msg" string to "std_msgs"
+				3 - Save changes in files and execute "catkin_make" in VS Terminal again, it should compile now
+
+Open new linux terminal and run:
+	roscore  ## Execute master
+
+Open new linux terminal and run:
+	rosrun first_pkg talker.py   ## Execute publisher node
+	
+Open new linux terminal and run:
+	rosrun first_pkg listener.py   ## Execute subscriber node	
+
+Open new linux terminal and run:
+	rosnode list  ## Shows all active nodes, here must appear master node, 
+	              ## publisher node ("/talker") and subscriber node ("/listener")
+
+Open new linux terminal and run:
+	rostopic list   ## Shows all active topics, here must appear "/chatter" topic, 
+			## as defined in rospy.Publisher('chatter', String, queue_size=10), in publisher script (talker.py)
+			## and in rospy.Subscriber("chatter", String, callback), in subscriber script (listener.py)
+
+Open new linux terminal and run:
+	rostopic info /chatter ## Shows the type of message that is being sent (std_msgs/String),
+				## the publisher ( * /talker_10521_1706996427712 (http://daniel:43941/) )
+				## and the subscriber ( * /listener_10590_1706996441881 (http://daniel:43317/) )
+		
+Open new linux terminal and run:
+	rqt_graph  ## It will show the conection of the nodes
+		   ## IN some versions of ROS it runs with: rosrun rqt_graph
+
+	
+
+	
+
+
+
